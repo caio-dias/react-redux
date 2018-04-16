@@ -1,14 +1,21 @@
 import React from 'react'
 import Grid from '../template/grid'
-import Button from '../template/button' 
+import IconButton from '../template/IconButton' 
 
 export default props => (
     <div role='form' className='todoForm'>
         <Grid cols='12 9 11'>
-            <input type='text' id='description' className='form-control' placeholder='Adicione uma tarefa'></input>
+            {/* value vindo do estado do componente, que vem como props */}
+            {/* componente controlado, a dom nao manda mais no componente, e sim o estado do componente */}
+            <input type='text' id='description' 
+            className='form-control' 
+            onChange={props.handleChange}
+            placeholder='Adicione uma tarefa' 
+            value={props.description} />
         </Grid>
         <Grid cols='12 3 1'>
-            <Button style='primary' icon='plus'/>
+            <IconButton style='primary' icon='plus'
+                onClick={props.handleAdd}></IconButton>     
         </Grid>
     </div>
 )
