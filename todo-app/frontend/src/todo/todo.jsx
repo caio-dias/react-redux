@@ -25,6 +25,7 @@ export default class Todo extends React.Component {
     }
     //adição de uma nova tarefa na lista
     handleAdd() {
+        //adicionando tarefas no banco
         const description = this.state.description
         axios.post(URL, {description})
             .then(resp => console.log('funfou'))
